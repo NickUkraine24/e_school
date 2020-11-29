@@ -29,5 +29,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ## Stack of technologies
-- `React` 17.0.1
-- `Material-UI` 4.11.1
+- `React` 17.0.1. See [create-react-app](https://github.com/facebook/create-react-app)
+- `Material-UI` 4.11.1. See [@material-ui](https://material-ui.com/)
