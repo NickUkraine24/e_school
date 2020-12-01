@@ -1,23 +1,29 @@
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 import './App.css';
+import AuthPage from '../AuthPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>Header</div>
+      <h1>Main page</h1>
+      <Link to={'/auth'}>AUTH</Link>
+
+      <Switch>
+        <Route path="/auth">
+          <AuthPage />
+        </Route>
+      </Switch>
+
+      <div>Footer</div>
+    </Router>
   );
-}
+};
 
 export default App;
