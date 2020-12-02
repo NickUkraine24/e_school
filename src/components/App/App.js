@@ -7,11 +7,12 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import AuthPage from '../AuthPage';
-
+import Header from './Header';
+import Footer from './Footer';
 const App = () => {
   return (
     <Router>
-      <div>Header</div>
+      <Header/>
       <h1>Main page</h1>
       <Link to={'/auth'}>AUTH</Link>
 
@@ -21,7 +22,7 @@ const App = () => {
         </Route>
       </Switch>
 
-      <div>Footer</div>
+      <Footer/>
     </Router>
   );
 };
