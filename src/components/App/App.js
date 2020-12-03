@@ -5,9 +5,10 @@ import {
   Route
 } from 'react-router-dom';
 import './App.css';
-import AuthPage from '../AuthPage';
+import Login from '../Login';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+
 const App = () => {
   return (
     <Router>
@@ -16,7 +17,7 @@ const App = () => {
 
       <Switch>
         <Route path="/auth">
-          <AuthPage />
+          <Login />
         </Route>
       </Switch>
 

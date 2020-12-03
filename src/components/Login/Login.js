@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthPage = () => {
+const Login = () => {
   return (
     <div>
       <h1>Auth</h1>
@@ -8,4 +8,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default Login;
