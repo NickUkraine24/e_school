@@ -8,19 +8,20 @@ import './App.css';
 import Login from '../Login';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Main from '../Main';
 
 const App = () => {
   return (
     <Router>
       <Header/>
-      <h1>Main page</h1>
-
       <Switch>
         <Route path="/auth">
           <Login />
         </Route>
+        <Route path="/">
+          <Main />
+        </Route>
       </Switch>
-
       <Footer/>
     </Router>
   );
