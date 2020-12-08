@@ -18,8 +18,8 @@ const Header = () => {
           <Link to={'/auth'}>
             <Button color="inherit">Login</Button>
           </Link>
-          <Link to={'/timetable'}>
-            <Button color="inherit">My timetable</Button>
+          <Link to={'/schedule'}>
+            <Button color="inherit">Schedule</Button>
           </Link>
         </Toolbar>
       </AppBar>
@@ -28,4 +28,3 @@ const Header = () => {
 };
 
 export default Header;
-
