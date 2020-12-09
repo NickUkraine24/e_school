@@ -9,12 +9,16 @@ import Login from '../Login';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main';
+import Schedule from '../Schedule';
 
 const App = () => {
   return (
     <Router>
       <Header/>
       <Switch>
+        <Route path="/schedule">
+         <Schedule />
+        </Route>
         <Route path="/auth">
           <Login />
         </Route>

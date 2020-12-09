@@ -18,6 +18,9 @@ const Header = () => {
           <Link to={'/auth'}>
             <Button color="inherit">Login</Button>
           </Link>
+          <Link to={'/schedule'}>
+            <Button color="inherit">Schedule</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
