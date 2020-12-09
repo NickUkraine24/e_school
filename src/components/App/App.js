@@ -16,7 +16,7 @@ const App = () => {
     <Router>
       <Header/>
       <Switch>
-        <Route path="/Schedule">
+        <Route path="/schedule">
          <Schedule />
         </Route>
         <Route path="/auth">
