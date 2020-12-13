@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -7,9 +7,28 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles';
+import { GET, GET_POSTS } from '../../shared/global-variables';
+import fetchDataFromAPI from '../../shared/fetch-data';
 
 const Login = () => {
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
+
   const classes = useStyles();
+
+  useEffect(() => {
+    fetchDataFromAPI(GET_POSTS + '1', GET)
+      .then(
+        (response) => {
+          console.log(response.data);
+          setData(response.data);
+        },
+        (error) => {
+          setError(error);
+        })
+  }, []);
+
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <Container component="main" maxWidth="xs">
@@ -18,6 +37,10 @@ const Login = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+        {/* TODO: this example for rendering data from fetch API*/}
+        {/*<div>*/}
+        {/*  {data.title}*/}
+        {/*</div>*/}
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
