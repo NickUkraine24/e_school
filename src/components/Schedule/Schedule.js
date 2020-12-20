@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -7,25 +7,35 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {useStyles, StyledTableCell} from './styles';
 import './Schedule.css';
+import { GET, GET_POSTS } from '../../shared/global-variables';
+import fetchDataFromAPI from '../../shared/fetch-data';
 
 const TimeTable = () => {
   const classes = useStyles();
-  const timetable=[
-    {
-      "id":1, 
-      "form":"11B",
-      "Monday":["Math", "English", "PE"], 
-      "Tuesday":["English", "History", "Literature"], 
-      "Wednesday":["English", "Chemistry", "Math"], 
-      "Thursday":["English", "Chemistry", "",  "Math"], 
-      "Friday":["English", "Chemistry", "Math"]
-    } 
-  ]
+
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchDataFromAPI(GET_POSTS, GET)
+      .then(
+        (response) => {
+          console.log(response);
+          setData(response);
+         
+        },
+        (error) => {
+          setError(error);
+        })
+  }, []);
+
+  
 
   const getSubjects = (days) => {
     return (<ol>
       {days.map((day, key) => (
           <li key={key}>{day}</li>
+          
       ))}
       </ol>);
   }
@@ -42,7 +52,7 @@ const TimeTable = () => {
       </tr>
     );
   }
-
+  JSON.stringify(data)
   return (
     <div className="schedule">
       <TableContainer component={Paper}>
@@ -58,7 +68,7 @@ const TimeTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-              {timetable.map(renderTimetable)}
+              {data.map(renderTimetable)}
           </TableBody>
         </Table>
       </TableContainer>
