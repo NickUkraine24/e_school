@@ -52,7 +52,7 @@ const TimeTable = () => {
       </tr>
     );
   }
-  JSON.stringify(data)
+ 
   return (
     <div className="schedule">
       <TableContainer component={Paper}>
