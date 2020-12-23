@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles';
 import {  HOST, POST} from '../../shared/global-variables';
-import fetchDataFromAPI from '../../shared/fetch-data';
+import {fetchDataFromAPI} from '../../shared/fetch-data';
 
 const SignUp = () => {
   const [error, setError] = useState(null);
@@ -28,6 +28,7 @@ const SignUp = () => {
       fetchDataFromAPI(HOST + 'SignUp',POST, {'Content-Type': 'application/json'}, data)
       .then(res=>{
         console.log(res);
+        alert(res.status);
        
       })
       .catch(err =>{

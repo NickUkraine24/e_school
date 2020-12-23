@@ -9,7 +9,7 @@ import Container from '@material-ui/core/Container';
 import useStyles from './styles';
 import {  HOST, POST} from '../../shared/global-variables';
 import { Redirect } from 'react-router-dom';
-import fetchDataFromAPI from '../../shared/fetch-data';
+import {fetchDataFromAPI} from '../../shared/fetch-data';
 
 const Login = () => {
   const [error, setError] = useState(null);
@@ -17,6 +17,8 @@ const Login = () => {
 
   const[_login, setLogin]=useState('');
   const[_password, setPassword]=useState('');
+
+  
 
   const handleSubmit = e =>{
       e.preventDefault();
@@ -30,10 +32,16 @@ const Login = () => {
       .then(res=>{
         console.log(res);
         localStorage.setItem('auth', res.auth)
+        
+        window.location.reload();
+        
+        
       })
       .catch(err =>{
         console.log(err);
       })
+
+      
       
   }
 

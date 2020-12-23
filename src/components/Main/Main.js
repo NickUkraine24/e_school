@@ -10,10 +10,10 @@ const Main = () => {
 
   
    if(token){
-     return(<h2>You are loged in</h2>);
+     return(<h2 align="center">You are loged in</h2>);
    }
 
-   return(<h2>Please, log in</h2>)
+   return(<h2 align="center">Please, log in</h2>)
    
 }
 

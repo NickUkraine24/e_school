@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import {useStyles, StyledTableCell} from './styles';
 import './Schedule.css';
 import { GET, HOST } from '../../shared/global-variables';
-import fetchDataFromAPI from '../../shared/fetch-data';
+import {fetchTimeTable} from '../../shared/fetch-data';
 
 const TimeTable = () => {
   const classes = useStyles();
@@ -17,7 +17,7 @@ const TimeTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetchDataFromAPI(HOST+'GetTimeTable', GET)
+    fetchTimeTable(HOST+'GetTimeTable')
       .then(
         (response) => {
           console.log(response);

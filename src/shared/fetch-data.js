@@ -14,5 +14,19 @@ async function fetchDataFromAPI(path, method = GET, headers = {}, body = {}) {
   return await response.json();
 };
 
-export default fetchDataFromAPI;
+async function fetchTimeTable(path, method = GET) {
+  if (!path) return null;
+
+  const response = await fetch(
+    path, {
+      method: method,
+    }
+  );
+
+  return await response.json();
+};
+
+export {fetchDataFromAPI,
+        
+          fetchTimeTable}
 

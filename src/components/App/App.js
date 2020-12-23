@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer';
 import Main from '../Main';
 import Schedule from '../Schedule';
 import SignUp from '../SignUp';
-import Logout from '../Logout'
+
 
 
 const App = () => {
@@ -20,9 +20,21 @@ const App = () => {
     <Router>
       <Header/>
       <Switch>
-      
+
+      <Route
+                exact
+                path="/auth"
+                render={() => {
+                    return (
+                      localStorage.getItem('auth') ?
+                      <Redirect to="/"><Main/></Redirect>:
+                      <Route to="/auth"><Login/></Route> 
+                      
+                    )
+                }}
+              />
+         
         
-        <Route path="/auth"><Login/></Route>
         
         <Route path="/schedule"><Schedule /></Route>
         <Route exact path="/"><Main /></Route>
