@@ -30,10 +30,13 @@ const Login = () => {
       }
       fetchDataFromAPI(HOST + 'Login',POST, {'Content-Type': 'application/json'}, data)
       .then(res=>{
-        console.log(res);
-        localStorage.setItem('auth', res.auth)
+        console.log(res.status);
+        if(res.status===undefined){
+          localStorage.setItem('auth', res.auth);
+          window.location.reload();
+        }
         
-        window.location.reload();
+        
         
         
       })
