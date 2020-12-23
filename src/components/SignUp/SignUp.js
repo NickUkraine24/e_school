@@ -8,10 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles';
 import {  HOST, POST} from '../../shared/global-variables';
-import { Redirect } from 'react-router-dom';
 import fetchDataFromAPI from '../../shared/fetch-data';
 
-const Login = () => {
+const SignUp = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
 
@@ -26,10 +25,10 @@ const Login = () => {
         password:_password
 
       }
-      fetchDataFromAPI(HOST + 'Login',POST, {'Content-Type': 'application/json'}, data)
+      fetchDataFromAPI(HOST + 'SignUp',POST, {'Content-Type': 'application/json'}, data)
       .then(res=>{
         console.log(res);
-        localStorage.setItem('auth', res.auth)
+       
       })
       .catch(err =>{
         console.log(err);
@@ -43,14 +42,14 @@ const Login = () => {
 
   
 
-  if (error) return <div>Error: {error.message}</div>;
+ if (error) return <div>Error: {error.message}</div>;
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign Up
         </Typography>
         {/* TODO: this example for rendering data from fetch API*/}
         {/*<div>*/}
@@ -81,10 +80,7 @@ const Login = () => {
             autoComplete="current-password"
             onChange={e=>setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+         
           <Button
             type="submit"
             fullWidth
@@ -93,7 +89,7 @@ const Login = () => {
             className={classes.submit}
             onClick={handleSubmit}
           >
-            Sign In
+            Sign Up
           </Button>
         </form>
       </div>
@@ -101,4 +97,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

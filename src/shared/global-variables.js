@@ -4,12 +4,12 @@ const PUT = 'PUT';
 const DELETE = 'DELETE';
 
 // Testing API: https://gorest.co.in/
-const GET_POSTS = 'https://gorest.co.in/public-api/posts/';
+const HOST='https://localhost:44374/api/';
 
 export {
   GET,
   POST,
   PUT,
   DELETE,
-  GET_POSTS
+  HOST
 }
